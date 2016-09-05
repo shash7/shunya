@@ -1,0 +1,114 @@
+
+
+<div class="header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="header__inner">
+					<h1 class="header__title">
+						Options
+					</h1>
+					<span class="header__text">
+						Modify global fields here
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="section">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-12">
+				<div class="section__inner">
+
+					<!-- Field groups -->
+					<form method="post">
+					<!-- Page groups -->
+					<h2>
+					Page groups
+					</h2>
+					<div class="form-row">
+						<div class="col-6">
+							<label>
+							Front page
+							</label>
+							<select type="text" class="select">
+							</select>
+						</div>
+						<div class="col-6">
+							<label>
+							404 page
+							</label>
+							<select type="text" class="select">
+							</select>
+						</div>
+					</div>
+					<script type="text/javascript">
+					var path = '{{paths.backend}}/pages';
+
+					$(".select").select2({
+						ajax: {
+							url: path,
+							contentType: "application/json; charset=utf-8",
+							delay: 50,
+							processResults: function (data, params) {
+								console.log(data);
+								// parse the results into the format expected by Select2
+								// since we are using custom formatting functions we do not need to
+								// alter the remote JSON data, except to indicate that infinite
+								// scrolling can be used
+								params.page = params.page || 1;
+
+								data = $.map(data, function (item) {
+									return {
+										text: item.title,
+										_id: item._id,
+										id: item._id
+									}
+								});
+
+								return {
+									results: data,
+									pagination: {
+										more: (params.page * 10) < data.length
+									}
+								};
+							},
+							cache: true
+						}
+					})
+					</script>
+					<!-- Page groups END -->
+					<h3>
+					Fields groups
+					</h3>
+
+					{% if fields %}
+						<div class="form-row">
+							{% for key, field in fields %}
+								{% include 'partials/form/' + field.type + '.html' %}
+							{% endfor %}
+						</div>
+						<input class="hidden" name="id" value="{{id}}">
+						<div class="form-row">
+							<div class="col-4">
+								<input type="submit" value="Update">
+							</div>
+						</div>
+					{% else %}
+					<blockquote class="section__message">
+						No Fields present
+					</blockquote>
+					{% endif %}
+
+					<!-- Field groups END -->
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
