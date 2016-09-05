@@ -11,7 +11,7 @@
 
 (function() {
 
-	var Chance = require('chance');
+	//var Chance = require('chance');
 
 	function generatePictures(limit) {
 		var chance = new Chance();
@@ -98,8 +98,8 @@
 
 		};
 
-		cms.defineType(obj);
-		cms.defineType(obj2);
+		//cms.defineType(obj);
+		//cms.defineType(obj2);
 
 		//cms.addDocuments('Picture', generatePictures(10000));
 	}
