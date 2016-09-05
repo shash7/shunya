@@ -15,7 +15,6 @@
 
 	var fs       = require('fs');
 	var YAML     = require('yamljs');
-	//var manifest = require('asset-builder')('./src/manifest.json');
 	var App      = require('./lib/app.js');
 
 	// Load config options

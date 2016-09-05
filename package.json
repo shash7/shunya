@@ -1,22 +1,22 @@
 {
-  "name": "OpenShift-Sample-App",
+  "name": "Shunya",
   "version": "1.0.0",
-  "description": "OpenShift Sample Application",
+  "description": "Shunya is a no BS cms made in nodejs",
   "keywords": [
-    "OpenShift",
+    "Shunya",
     "Node.js",
     "application",
-    "openshift"
+    "cms"
   ],
   "author": {
-    "name": "OpenShift",
-    "email": "ramr@example.org",
-    "url": "http://www.openshift.com/"
+    "name": "Shash",
+    "email": "no@nope.com",
+    "url": "http://shash7.tumblr.com"
   },
-  "homepage": "http://www.openshift.com/",
+  "homepage": "https://shunya.herokuapp.com/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/openshift/origin-server"
+    "url": "https://github.com/shash7/shunya"
   },
   "engines": {
     "node": ">= 0.6.0",
@@ -59,7 +59,6 @@
   },
   "bundleDependencies": [],
   "private": true,
-  "main": "index.js",
   "scripts" : {
     "start" : "index.js"
   }
