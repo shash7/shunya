@@ -59,5 +59,8 @@
   },
   "bundleDependencies": [],
   "private": true,
-  "main": "index.js"
+  "main": "index.js",
+  "scripts" : {
+    "start" : "index.js"
+  }
 }
