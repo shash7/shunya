@@ -36,10 +36,10 @@
 							Front page
 							</label>
 							<select class="select" name="homepage">
-							{{homepage}}
+							
 								{% if homepage %}
-								<option>
-								{{homepage}}
+								<option value="{{homepage.id}} {{homepage.pageName}}" selected="selected">
+								{{homepage.pageName}}
 								</option>
 								{% endif %}
 							</select>
@@ -49,13 +49,18 @@
 							404 page
 							</label>
 							<select class="select" name="errorpage">
+								{% if errorpage %}
+								<option value="{{errorpage.id}} {{errorpage.pageName}}" selected="selected">
+								{{errorpage.pageName}}
+								</option>
+								{% endif %}
 							</select>
 						</div>
 					</div>
 					<script type="text/javascript">
 					var path = '{{paths.backend}}/pages';
 
-					$(".select").select2({
+					$(".select").select2().select2({
 						ajax: {
 							url: path,
 							contentType: "application/json; charset=utf-8",

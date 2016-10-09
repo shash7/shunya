@@ -47,6 +47,19 @@ window.routes = window.routes || {};
 		}
 	}
 
+	function onDeleteSubmit(e) {
+		e.preventDefault();
+		var result = confirm('Sure you want to delete this page?');
+		if(result) {
+			$.ajax({
+				method : 'delete',
+				success : function() {
+					
+				}
+			});
+		}
+	}
+
 	window.routes.page = {
 		addRow : function() {
 			var el = $(this);
@@ -84,6 +97,8 @@ window.routes = window.routes || {};
 			$(document).on('click', '.repeater__controls',this.removeRow);
 
 			this.setEditors();
+
+			$('#delete').submit(onDeleteSubmit);
 		}
 	};
 	

@@ -1783,7 +1783,6 @@ small {
 }
 label {
   font-weight: 400;
-  font-size: 0.8em;
 }
 code,
 kbd,
@@ -2065,9 +2064,10 @@ select:focus {
 }
 label {
   display: inline-block;
-  margin-bottom: 4px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   font-weight: 500;
-  color: #4d4d4d;
+  color: #666666;
 }
 .form-group {
   padding: 5px;
@@ -3073,6 +3073,14 @@ label {
 }
 .select2-container--classic.select2-container--open .select2-dropdown {
   border-color: #5897fb;
+}
+.select2-container--default .select2-selection--single {
+  border-radius: 0;
+  border: #DDD solid 1px;
+  border-bottom: 1px solid #898989;
+  border-left: 1px solid #d0d0d0;
+  border-right: 1px solid #d0d0d0;
+  border-top: 1px solid #eaeaea;
 }
 body .wrapper {
   position: relative;

@@ -31,6 +31,24 @@
 					System stats
 					</h2>
 					<div class="table">
+						<div class="table__row">
+							<div class="table__cell">
+								Environment
+							</div>
+							<div class="table__cell">
+							{{widgets.env}}
+							</div>
+						</div>
+						<div class="table__row">
+							<div class="table__cell">
+								Port
+							</div>
+							<div class="table__cell">
+							{{widgets.port}}
+							</div>
+						</div>
+					</div>
+					<div class="table">
 						{% for key, value in widgets.stats %}
 						<div class="table__row">
 							<div class="table__cell">
