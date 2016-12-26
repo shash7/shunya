@@ -1,0 +1,22 @@
+<div class="col-{{field.size}}">
+	<label>
+	{{field.label}}
+	</label>
+	{% if fieldName %}
+	{% else %}
+	{% set fieldName = "fields" %}
+	{% endif %}
+	<div
+		data-field="table"
+		data-rows="{{field.rows}}"
+		data-columns="{{field.columns}}"
+		data-options="{{field.options}}"
+		data-name="{{fieldName}}[]{{field.depth}}[{{field.name}}]"
+		>
+	</div>
+	{% if field.description %}
+	<span class="form-description">
+	{{field.description}}
+	</span>
+	{% endif %}
+</div>

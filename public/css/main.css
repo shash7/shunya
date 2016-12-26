@@ -3082,6 +3082,117 @@ label {
   border-right: 1px solid #d0d0d0;
   border-top: 1px solid #eaeaea;
 }
+@-webkit-keyframes flipDown {
+  from {
+    -webkit-transform: translate3d(0, 0, 0) scaleX(1) scaleY(1) rotateX(90deg);
+            transform: translate3d(0, 0, 0) scaleX(1) scaleY(1) rotateX(90deg);
+    background-color: #fafafa;
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0) scaleX(1) scaleY(1) rotateX(0);
+            transform: translate3d(0, 0, 0) scaleX(1) scaleY(1) rotateX(0);
+    background-color: inherit;
+  }
+}
+@keyframes flipDown {
+  from {
+    -webkit-transform: translate3d(0, 0, 0) scaleX(1) scaleY(1) rotateX(90deg);
+            transform: translate3d(0, 0, 0) scaleX(1) scaleY(1) rotateX(90deg);
+    background-color: #fafafa;
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0) scaleX(1) scaleY(1) rotateX(0);
+            transform: translate3d(0, 0, 0) scaleX(1) scaleY(1) rotateX(0);
+    background-color: inherit;
+  }
+}
+@-webkit-keyframes slideOut {
+  from {
+    -webkit-transform: translate3d(0, 0, 0) scaleX(1) scaleY(1) rotateX(0);
+            transform: translate3d(0, 0, 0) scaleX(1) scaleY(1) rotateX(0);
+    opacity: 1;
+    background-color: inherit;
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0) scaleX(1) scaleY(1) rotateX(-90deg);
+            transform: translate3d(0, 0, 0) scaleX(1) scaleY(1) rotateX(-90deg);
+    opacity: 0;
+    background-color: #fafafa;
+  }
+}
+@keyframes slideOut {
+  from {
+    -webkit-transform: translate3d(0, 0, 0) scaleX(1) scaleY(1) rotateX(0);
+            transform: translate3d(0, 0, 0) scaleX(1) scaleY(1) rotateX(0);
+    opacity: 1;
+    background-color: inherit;
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0) scaleX(1) scaleY(1) rotateX(-90deg);
+            transform: translate3d(0, 0, 0) scaleX(1) scaleY(1) rotateX(-90deg);
+    opacity: 0;
+    background-color: #fafafa;
+  }
+}
+.tabularInput-table {
+  border-collapse: collapse;
+  max-width: 100%;
+}
+.tabularInput-table tbody {
+  max-width: 100%;
+  width: 100%;
+}
+.tabularInput-table td input {
+  margin: 0 0 -1px;
+  padding: .5em .9em;
+  -webkit-transition: -webkit-box-shadow 0.1s;
+          transition: box-shadow 0.1s;
+  width: 100%;
+  font-size: 90%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-right-width: 0;
+}
+.tabularInput-table td:last-child {
+  border-right: 1px solid #ddd;
+}
+.tabularInput-table td input:focus {
+  -webkit-box-shadow: 0 0 4px 2px #A1C2F3;
+          box-shadow: 0 0 4px 2px #A1C2F3;
+  border-color: transparent;
+  outline: 0;
+  z-index: 1;
+  position: relative;
+}
+.tabularInput-table tr.animate-add,
+.tabularInput-table tr.animate-remove {
+  -webkit-perspective: 500;
+  -ms-perspective: 500;
+  perspective: 500;
+}
+.tabularInput-table.animate tr.animate-add input {
+  -webkit-transform-origin: 0 0;
+      -ms-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-animation: flipDown 0.35s ease-in;
+          animation: flipDown 0.35s ease-in;
+}
+.tabularInput-table.animate tr.animate-remove input {
+  -webkit-transform-origin: 0 0;
+      -ms-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-animation: slideOut 0.3s ease-in;
+          animation: slideOut 0.3s ease-in;
+}
+.tabularInput-table th {
+  padding: .5em .9em;
+  font-size: 95%;
+  background-color: #fafafa;
+  font-weight: 400;
+  border: 1px solid #ddd;
+  border-bottom-width: 0;
+}
 body .wrapper {
   position: relative;
   min-height: 100vh;
@@ -3115,15 +3226,14 @@ body.options .wrapper:after {
   -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1aede9e3',endColorstr='#ffffecf5',GradientType=1);
 }
 body.login {
-  background-image: url('../img/background.png');
-  background-size: cover;
+  background-color: #333;
 }
 body.login .wrapper:after {
   content: none;
 }
 body.login .login__inner {
   padding: 0 40px;
-  padding-top: 60px;
+  padding-top: 80px;
 }
 body.login .login__title {
   color: #FFF;
@@ -3132,9 +3242,17 @@ body.login .login__title {
 }
 body.login .login__form {
   padding: 20px;
-  background-color: #FFF;
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
   -webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.08);
           box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.08);
+}
+body.login .login__form label {
+  color: #FFF;
+}
+body.login .login__form input {
+  padding: 8px;
+  border-radius: 2px;
 }
 body.signup .wrapper:after {
   content: none;

@@ -64,7 +64,7 @@
 							{% endif %}
 						{% endfor %}
 						<div class="col-4">
-							<input type="submit" value="Create {{typeName}}">
+							<input type="submit" value="Update {{type.name}}">
 						</div>
 					{% else %}
 						<blockquote class="section__message">
@@ -77,7 +77,7 @@
 
 					<hr>
 
-					<form>
+					<form method="delete" id="delete">
 					<div class="form-row">
 						<div class="col-4">
 							<input type="submit" value="Delete {{type.name}}">

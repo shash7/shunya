@@ -19,6 +19,10 @@ window.routes = window.routes || {};
           // $('a').click(function() {
           //   alert('Hello world!');
           // });
+          $('[data-field="table"]').each(function(e) {
+          	var el = $(this);
+          	el.tabularInput();
+          });
 
         },
         finalize: function(){ }
@@ -33,8 +37,8 @@ window.routes = window.routes || {};
 
         }
       },
-      login : routes.login,
-      pages : routes.pages,
+      login   : routes.login,
+      pages   : routes.pages,
       subpage : routes.page,
 
       types : routes.types

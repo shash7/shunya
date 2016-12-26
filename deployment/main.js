@@ -50,6 +50,10 @@
  				description : {
  					type      : String,
  					fieldType : 'textarea'
+ 				},
+ 				alignment : {
+ 					type : String,
+ 					fieldType : 'table'
  				}
  			},
 
@@ -76,30 +80,7 @@
 
 		};
 
-		var obj2 = {
-
-			name      : 'Item',   // Will be used for creating the database
-			plural    : 'Items',  // Will be used in the backend UI
-			slug      : '/items', // Will be used in creating urls
-			navName   : 'Items',   // Optional; Will be used for the menu name
-
-			schema : {
- 				title : {
- 					type    : String,
- 					default : 'Post title',
- 					fieldType : 'textarea'
- 				},
- 				author : {
- 					type : String
- 				}
- 			},
-
- 			archiveTemplate : 'index'
-
-		};
-
-		//cms.defineType(obj);
-		//cms.defineType(obj2);
+		cms.defineType(obj);
 
 		//cms.addDocuments('Picture', generatePictures(10000));
 	}

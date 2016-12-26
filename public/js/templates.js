@@ -565,6 +565,73 @@ root: root
 })();
 })();
 
+(function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["table.html"] = (function() {
+function root(env, context, frame, runtime, cb) {
+var lineno = null;
+var colno = null;
+var output = "";
+try {
+var parentTemplate = null;
+output += "<div class=\"col-";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "field")),"size"), env.opts.autoescape);
+output += "\">\r\n\t<label>\r\n\t";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "field")),"label"), env.opts.autoescape);
+output += "\r\n\t</label>\r\n\t";
+if(runtime.contextOrFrameLookup(context, frame, "fieldName")) {
+output += "\r\n\t";
+;
+}
+else {
+output += "\r\n\t";
+var t_1;
+t_1 = "fields";
+frame.set("fieldName", t_1, true);
+if(frame.topLevel) {
+context.setVariable("fieldName", t_1);
+}
+if(frame.topLevel) {
+context.addExport("fieldName", t_1);
+}
+output += "\r\n\t";
+;
+}
+output += "\r\n\t<div\r\n\t\tdata-field=\"table\"\r\n\t\tdata-rows=\"";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "field")),"rows"), env.opts.autoescape);
+output += "\"\r\n\t\tdata-columns=\"";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "field")),"columns"), env.opts.autoescape);
+output += "\"\r\n\t\tdata-options=\"";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "field")),"options"), env.opts.autoescape);
+output += "\"\r\n\t\tdata-name=\"";
+output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "fieldName"), env.opts.autoescape);
+output += "[]";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "field")),"depth"), env.opts.autoescape);
+output += "[";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "field")),"name"), env.opts.autoescape);
+output += "]\"\r\n\t\t>\r\n\t</div>\r\n\t";
+if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "field")),"description")) {
+output += "\r\n\t<span class=\"form-description\">\r\n\t";
+output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "field")),"description"), env.opts.autoescape);
+output += "\r\n\t</span>\r\n\t";
+;
+}
+output += "\r\n</div>";
+if(parentTemplate) {
+parentTemplate.rootRenderFunc(env, context, frame, runtime, cb);
+} else {
+cb(null, output);
+}
+;
+} catch (e) {
+  cb(runtime.handleError(e, lineno, colno));
+}
+}
+return {
+root: root
+};
+
+})();
+})();
+
 (function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["text.html"] = (function() {
 function root(env, context, frame, runtime, cb) {
 var lineno = null;
