@@ -6,9 +6,8 @@
 			<div class="col-md-12">
 				<div class="header__inner">
 					<h1 class="header__title">
-						{{page._id}}
+						{{type.pageTitle}}
 					</h1>
-					{{type | dump | safe}}
 					<a class="header__text" href="{{paths.host}}{{type.slug}}/{{page._id}}" target="_blank">
 						{{paths.host}}{{type.slug}}/{{page._id}}
 					</a>

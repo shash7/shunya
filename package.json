@@ -23,6 +23,7 @@
     "npm": ">= 1.0.0"
   },
   "dependencies": {
+    "acl": "^0.4.9",
     "async": "^1.5.2",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.13.3",

@@ -74,9 +74,14 @@
  				}
  			],
 
- 			queryLimit : 250,
+ 			queryLimit : 10,
  			template : 'about',
- 			archiveTemplate : 'index'
+ 			archiveTemplate : 'index',
+ 			pageTitle : 'title',
+ 			
+ 			search : {
+ 				field : 'title'
+ 			}
 
 		};
 

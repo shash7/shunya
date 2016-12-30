@@ -1,11 +1,10 @@
 
-{{pagination | dump | safe}}
 {% if pagination.pages > 1 %}
 <div class="pagination">
 {% for i in range(1, pagination.pages + 1) %}
 {% if type %}
 	<a
-		href="{{paths.backend}}{{type.slug}}?page={{i}}"
+		href="{{paths.backend}}{{type.slug}}?page={{i}}&{{query.raw}}"
 		class="pagination__item {% if pagination.page == i %}pagination__item--current{% endif %}"
 		title="Page no {{i}}"
 			>
@@ -13,7 +12,7 @@
 	</a>
 {% else %}
 	<a
-		href="{{paths.backend}}{{type.slug}}?page={{i}}"
+		href="{{paths.backend}}{{type.slug}}?page={{i}}&{{query.raw}}"
 		class="pagination__item {% if pagination.page == i %}pagination__item--current{% endif %}"
 		title="Page no {{i}}"
 			>

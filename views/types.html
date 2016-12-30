@@ -1,19 +1,17 @@
 
 
-<div class="header header--left-align">
+<div class="header">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="header__inner">
 					<h1 class="header__title">
-						Manage {{type.namePlural | lower}}
+						{{type.namePlural | lower | capitalize}}
 					</h1>
 					<h5 class="header__text">
-						
+						Showing {{pagination.total}} {{type.namePlural | lower}} currently
 					</h5>
-					<button class="header__button" data-toggle="modal" data-target=".bs-example-modal-sm">
-						Add {{type.name | lower}}
-					</button>
+					
 				</div>
 			</div>
 		</div>
@@ -26,6 +24,37 @@
 
 			<div class="col-md-12">
 				<div class="section__inner">
+
+					<!-- Controls -->
+					<div class="row">
+
+						{% if type.search.field %}
+						<form method="get" class="col-md-6">
+							<div class="row">
+								<div class="col-md-8">
+								<label>
+								Search
+								</label>
+								<input type="text" name="search" placeholder="{{type.search.field}}">
+								</div>
+								<div class="col-md-4">
+								<label>
+								&nbsp;
+								</label>
+								<input type="submit" value="Search {{type.namePlural | lower}}">
+								</div>
+							</div>
+						</form>
+						{% endif %}
+						<div class="col-md-2">
+							<button class="header__button" data-toggle="modal" data-target=".bs-example-modal-sm">
+								Add {{type.name | lower}}
+							</button>
+						</div>
+					</div>
+
+					<hr>
+					<!-- Controls END -->
 					
 					<!-- Table -->
 					<div class="table">
