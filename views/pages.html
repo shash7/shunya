@@ -25,28 +25,25 @@
 
 					<!-- Controls -->
 					<div class="row">
-
-						{% if type.search.field %}
-						<form method="get" class="col-md-6">
+						<form method="get" class="col-lg-10 col-md-8">
 							<div class="row">
-								<div class="col-md-8">
+								<div class="col-md-9 col-sm-7">
 								<label>
 								Search
 								</label>
 								<input type="text" name="search" placeholder="{{type.search.field}}">
 								</div>
-								<div class="col-md-4">
+								<div class="col-md-3 col-sm-5">
 								<label>
 								&nbsp;
 								</label>
-								<input type="submit" value="Search {{type.namePlural | lower}}">
+								<input type="submit" value="Search pages">
 								</div>
 							</div>
 						</form>
-						{% endif %}
-						<div class="col-md-2">
-							<button class="header__button" data-toggle="modal" data-target=".bs-example-modal-sm">
-								Add Page
+						<div class="col-lg-2 col-md-4">
+							<button class="section__cta section__cta--add" data-toggle="modal" data-target=".bs-example-modal-sm">
+								Add page
 							</button>
 						</div>
 					</div>

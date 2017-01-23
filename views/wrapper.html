@@ -8,11 +8,24 @@
 		{% include "partials/head.html" %}
 	</head>
 
-	<body class="admin {{bodyClasses}}">
+	<body
+		class="admin {{bodyClasses}}"
+		{% if resource %}
+			{% if resource.color %}
+				data-color="{{resource.color}}"
+			{% endif %}
+		{% elif type %}
+			{% if type.color %}
+				data-color="{{type.color}}"
+			{% endif %}
+		{% endif %}
+		>
 
 		{% include "partials/nav.html" %}
 
 		<div class="wrapper">
+			<div class="overlay">
+			</div>
 			{% include pageName + ".html" %}
 		</div>
 	</body>

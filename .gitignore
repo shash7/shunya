@@ -1,3 +1,5 @@
 node_modules/
 bower_components/
 deployment/node_modules/
+db.bat
+init.bat

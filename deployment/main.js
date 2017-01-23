@@ -36,7 +36,6 @@
 			plural    : 'Pictures',  // Will be used in the backend UI
 			slug      : '/pictures', // Will be used in creating urls
 			navName   : 'Pictures',   // Optional; Will be used for the menu name
-
 			schema : {
  				title : {
  					type      : String,
@@ -85,7 +84,7 @@
 
 		};
 
-		cms.defineType(obj);
+		//cms.defineType(obj);
 
 		//cms.addDocuments('Picture', generatePictures(10000));
 	}

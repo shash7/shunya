@@ -114,6 +114,19 @@
 		app.use(favicon(__dirname + '/public/img/favicon.ico'));
 
 		/**
+		 * Added a flag to check if its a ajax request
+		 */
+		app.use(function(req, res, next) {
+			res.locals.vars = res.locals.vars || {};
+			res.locals.vars.isAjax = false;
+			var contentType = req.headers['content-type'] || '';
+			if(contentType === 'application/json' || contentType.indexOf('application/json') === 0) {
+				res.locals.vars.isAjax = true;
+			}
+			next();
+		})
+
+		/**
 		 * Logs express app
 		 */
 		if(app.get('env') !== 'server') {

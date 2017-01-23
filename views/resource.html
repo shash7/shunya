@@ -1,0 +1,91 @@
+
+
+<div class="header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="header__inner">
+					<h1 class="header__title">
+						{{vars.pageTitle}}
+					</h1>
+					<a class="header__text" href="{{paths.host}}{{resource.slug}}/{{page._id}}" target="_blank">
+						{{paths.host}}{{resource.slug}}/{{page._id}}
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% include "partials/flash.html" %}
+
+<div class="section">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-12">
+				<div class="section__inner">
+
+					<!-- Field groups -->
+					<form method="post">
+					<h3>
+					Fields groups
+					</h3>
+
+					{% if fields %}
+						<div class="form-row">
+							{% for field in fields %}
+								{% include 'partials/form/' + field.type + '.html' %}
+							{% endfor %}
+						</div>
+					{% else %}
+					<blockquote class="section__message">
+						No Fields present
+					</blockquote>
+					{% endif %}
+
+					<!-- Field groups END -->
+					
+
+					<!-- Page settings -->
+					<h3>
+					{{resource.name}} settings
+					</h3>
+
+
+					<div class="form-row">
+					{% if type.fields %}
+						{% for field in fields %}
+						{% set fieldName = "typeFields" %}
+							{% if field.name != 'dateCreated' %}
+								{% include 'partials/form/' + field.type + '.html' %}
+							{% endif %}
+						{% endfor %}
+						<div class="col-4">
+							<input type="submit" value="Update {{type.name}}">
+						</div>
+					{% else %}
+						<blockquote class="section__message">
+						No Fields present
+					</blockquote>
+					{% endif %}
+					</div>
+					</form>
+					<!-- Page settings END -->
+
+					<hr>
+
+					<form method="delete" id="delete">
+					<div class="form-row">
+						<div class="col-4">
+							<input type="submit" value="Delete {{type.name}}">
+						</div>
+					</div>
+					</form>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

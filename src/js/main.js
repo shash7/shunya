@@ -9,6 +9,17 @@ window.routes = window.routes || {};
 
   var list;
 
+  function setGradient(color) {
+    var style = {
+      'background' : '-webkit-linear-gradient(180deg, ' + color + ' 0%, rgba(237, 233, 227, 0.1) 100%)',
+      'background' : '-moz-linear-gradient(180deg, ' + color + ' 0%, rgba(237, 233, 227, 0.1) 100%)',
+      'background' : '-ms-linear-gradient(180deg, ' + color + ' 0%, rgba(237, 233, 227, 0.1) 100%)',
+      'background' : '-o-linear-gradient(180deg, ' + color + ' 0%, rgba(237, 233, 227, 0.1) 100%)',
+      'background' : 'linear-gradient(180deg, ' + color + ' 0%, rgba(237, 233, 227, 0.1) 100%)'
+    }
+    return style;
+  }
+
   function loadRoutes() {
 
     var routeList = {
@@ -23,6 +34,11 @@ window.routes = window.routes || {};
           	var el = $(this);
           	el.tabularInput();
           });
+
+          if($('body').data('color')) {
+            var color = $('body').data('color');
+            $('body .wrapper .overlay').css(setGradient(color));
+          }
 
         },
         finalize: function(){ }

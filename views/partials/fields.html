@@ -1,0 +1,24 @@
+<!-- Field groups -->
+<form method="post">
+<h3>
+Fields groups
+</h3>
+
+{% if fields %}
+	<div class="form-row">
+		{% for field in fields %}
+			{% include 'partials/form/' + field.type + '.html' %}
+		{% endfor %}
+	</div>
+{% else %}
+<blockquote class="section__message">
+	No Fields present
+</blockquote>
+{% if not fields %}
+<div class="form-row">
+	<div class="col-4">
+		<input type="submit" value="Update {{type.name}}">
+	</div>
+</div>
+{% endif %}
+<!-- Field groups END -->

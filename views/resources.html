@@ -1,17 +1,15 @@
 
-
 <div class="header">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="header__inner">
 					<h1 class="header__title">
-						{{type.namePlural | lower | capitalize}}
+						{{resource.plural}}
 					</h1>
 					<h5 class="header__text">
-						Showing {{pagination.total}} {{type.namePlural | lower}} currently
+						{{resource.description}}
 					</h5>
-					
 				</div>
 			</div>
 		</div>
@@ -21,13 +19,11 @@
 <div class="section">
 	<div class="container">
 		<div class="row">
-
 			<div class="col-md-12">
 				<div class="section__inner">
 
 					<!-- Controls -->
 					<div class="row">
-						{% if type.search.field %}
 						<form method="get" class="col-lg-10 col-md-8">
 							<div class="row">
 								<div class="col-md-9 col-sm-7">
@@ -44,7 +40,6 @@
 								</div>
 							</div>
 						</form>
-						{% endif %}
 						<div class="col-lg-2 col-md-4">
 							<button class="section__cta section__cta--add" data-toggle="modal" data-target=".bs-example-modal-sm">
 								Add page
@@ -53,14 +48,12 @@
 					</div>
 					<hr>
 					<!-- Controls END -->
-					
+
 					<!-- Table -->
 					<div class="table">
-						
 						<div class="table__row table__row--header">
-
-							{% if type.table %}
-								{% for row in type.table %}
+							{% if resource.table %}
+								{% for row in resource.table %}
 									<div class="table__cell {% if row.align %}table__cell--align-right{% endif %}">
 										{{row.name}}
 									</div>
@@ -75,13 +68,12 @@
 							{% endif %}
 							
 						</div>
-						{% if type.table %}
+						{% if resource.table %}
 							{% for page in pages %}
-								<a class="table__row" href="{{paths.backend}}{{type.slug}}/{{page._id}}">
-									{% for row in type.table %}
+								<a class="table__row" href="{{paths.backend}}{{resource.slug}}/{{page._id}}">
+									{% for row in resource.table %}
 										{% if page[row.field] %}
 											<div class="table__cell {% if row.align %}table__cell--align-right{% endif %}">
-											{{row | dump | safe}}
 											{% if row.type == Date %}
 												{{page[row.field]}}
 											{% else %}
@@ -98,7 +90,7 @@
 							{% endfor %}
 						{% else %}
 							{% for page in pages %}
-							<a class="table__row" href="{{type.slug | removeSlash}}/{{page._id}}">
+							<a class="table__row" href="{{resource.slug | removeSlash}}/{{page._id}}">
 								<div class="table__cell">
 									{{page._id}}
 								</div>
@@ -108,10 +100,10 @@
 							</a>
 							{% else %}
 							<blockquote class="section__message center">
-								No {{typeNamePlural}} exist. <a href="#" data-toggle="modal" data-target=".bs-example-modal-sm">Create one now.</a>
+								No {{resource.plural | lowercase}} exist. <a href="#" data-toggle="modal" data-target=".bs-example-modal-sm">Create one now.</a>
 							</blockquote>
 							{% endfor %}
-						{% endif %}
+						{% endif %}	
 					</div>
 					<!-- Table END -->
 
@@ -126,27 +118,23 @@
 
 
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <h3>
-      Create page
+      Create {{resource.name}}
       </h3>
       <form id="addPage" class="form-row" method="post">
-      	{% if type.fields %}
-						{% for field in type.fields %}
-						{{field | dump | safe}}
-							{% if field.name != 'dateCreated' %}
-							{% include 'partials/form/' + field.type + '.html' %}
-							{% endif %}
-						{% endfor %}
-						<div class="col-4">
-							<input type="submit" value="Create {{typeName}}">
-						</div>
-				{% else %}
-				<blockquote class="section__message">
-					No Fields present
-				</blockquote>
-				{% endif %}
+      	<div class="col-12">
+      		<label>
+      		Title
+      		</label>
+      		<input type="text" name="title" placeholder="Page title">
+      		<span class="form-description">
+      		</span>
+      	</div>
+      	<div class="col-12">
+      		<input type="submit" value="Create page">
+      	</div>
       </form>
 
     </div>

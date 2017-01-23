@@ -5,7 +5,7 @@ window.routes = window.routes || {};
 (function(window, document) {
 	
 	'use strict';
-
+	
 	window.nunjucks = new nunjucks.Environment();
 
 	var num = 0;
